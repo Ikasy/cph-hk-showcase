@@ -52,7 +52,7 @@ export const Route = createFileRoute("/projects")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Projects;
+  component: Projects,
 });
 
 function Projects() {
