@@ -1,14 +1,18 @@
-# Welcome to your Lovable project
+# Nordic Code Bloom
+
+C#/umbraco Developer portfolio. animations and effects to draw attention and stand out. There should be about me, tech stack, projects, and contact. A danish outlook trying to get hired in Hong Kong
 
 This project was built with [Lovable](https://lovable.dev).
 
+**Live app**: https://cph-hk-showcase.lovable.app
+
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/251c0834-df3d-41fa-ab61-a02f7dc3d4f5).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +24,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
