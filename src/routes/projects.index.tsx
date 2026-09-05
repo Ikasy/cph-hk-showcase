@@ -1,40 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import projectFurniture from "@/assets/project-furniture.jpg";
-import projectBanking from "@/assets/project-banking.jpg";
-import projectEditorial from "@/assets/project-editorial.jpg";
+import { caseStudies } from "@/lib/projects-data";
 
-const projects = [
-  {
-    image: projectEditorial,
-    alt: "Content-rich association website with large typography",
-    tag: "Association · Umbraco",
-    title: "Danish Hunters' Association",
-    role: "Developer at Diviso ApS",
-    description:
-      "Client work on a large membership organisation's web presence — content structures in Umbraco, backend logic in C# and data handled in SQL Server.",
-  },
-  {
-    image: projectFurniture,
-    alt: "Business website design shown on a laptop screen",
-    tag: "Business sites · C# / ASP.NET",
-    title: "Client platforms at Diviso",
-    role: "Developer at Diviso ApS",
-    description:
-      "Building and maintaining websites and web applications for around 20 clients: new features, integrations against REST APIs, and ongoing improvements.",
-  },
-  {
-    image: projectBanking,
-    alt: "Clean dashboard interface with cards and data",
-    tag: "Education · React",
-    title: "Multimedia design portfolio work",
-    role: "Erhvervsakademi Aarhus",
-    description:
-      "Course and exam projects covering UX/UI design, visual communication and front-end builds in HTML, CSS, JavaScript, React and WordPress.",
-  },
-];
-
-export const Route = createFileRoute("/projects")({
+export const Route = createFileRoute("/projects/")({
   head: () => ({
     meta: [
       { title: "Projects · Umbraco, ASP.NET & Client Web Platforms" },
@@ -65,15 +33,17 @@ function Projects() {
         Platforms built for <span className="italic text-shimmer">real</span> clients.
       </h1>
       <p className="anim-fade anim-d3 mt-6 max-w-2xl text-lg leading-relaxed text-ink/70">
-        Most of my work is client work, so some details stay under wraps. Here's the shape of it —
-        happy to walk through the code and decisions in a conversation.
+        Most of my work is client work, so some details stay under wraps. Open a case for the full
+        story — the brief, the build and what I'd do differently.
       </p>
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="group overflow-hidden rounded-[1.75rem] border border-white/60 bg-cream/55 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
+        {caseStudies.map((project) => (
+          <Link
+            key={project.slug}
+            to="/projects/$slug"
+            params={{ slug: project.slug }}
+            className="group flex flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-cream/55 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
             <div className="aspect-[16/10] w-full overflow-hidden bg-mist">
               <img
@@ -85,15 +55,19 @@ function Projects() {
                 className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
               />
             </div>
-            <div className="p-6">
+            <div className="flex flex-1 flex-col p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.15em] text-brand">
                 {project.tag}
               </p>
               <h2 className="mt-2 font-display text-2xl">{project.title}</h2>
               <p className="mt-1 text-xs font-semibold text-ink/45">{project.role}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink/60">{project.description}</p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-ink/60">{project.summary}</p>
+              <span className="mt-5 text-sm font-semibold text-brand">
+                Read the case
+                <span className="ml-1 inline-block transition group-hover:translate-x-1">→</span>
+              </span>
             </div>
-          </article>
+          </Link>
         ))}
       </div>
 
